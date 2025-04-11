@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us</title>
+  <link rel="stylesheet" href="style2.css" />
+  <style>
+    body {
+      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+      height: 100%;
+      background-color: #f1f1f1;
+    }
+
+    .contact-container {
+      max-width: 600px;
+      margin: 120px auto 50px;
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+
+    .contact-container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #12690a;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 12px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      resize: vertical;
+    }
+
+    button {
+      background-color: #12690a;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 100%;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background-color: #0b4f07;
+    }
+
+    .error {
+      color: red;
+      font-size: 14px;
+    }
+
+    #header {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      background-color: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+    height: 80px;
+    width: 1380px;
+      
+    }
+
+    nav {
+      display: flex;
+      gap:55px;
+    }
+
+    nav a {
+      color: #12690a;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 8px 12px;
+    }
+
+    nav a:hover {
+      background-color:#12690a;
+    color:  aliceblue;
+    border-radius: 6px;
+    }
+
+    .logo {
+      width: 100px;
+    height: 80px;
+    margin: 0px;
+    }
+
+    .footer {
+      background-color: #ffffff;
+      color: #12690a;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .footer img {
+      margin-top: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Header Section -->
+  <section id="header">
+    <a href="#"><img src="imagees/logo.jpg" class="logo" alt="Logo"></a>
+    <nav>
+      <a href="home.html">Home</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="future.html">Future</a>
+      <a href="book.html">Book</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </section>
+
+  <!-- Contact Form Section -->
+  <div class="contact-container">
+    <h2>Contact Us</h2>
+    <form id="contactForm">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" placeholder="Your name...">
+      <div id="nameError" class="error"></div>
+
+      <label for="email">Email</label>
+      <input type="text" id="email" name="email" placeholder="Your email...">
+      <div id="emailError" class="error"></div>
+
+      <label for="message">Message</label>
+      <textarea id="message" name="message" rows="6" placeholder="Write your message..."></textarea>
+      <div id="messageError" class="error"></div>
+
+      <button type="submit">Send Message</button>
+    </form>
+  </div>
+
+  <!-- Footer -->
+  <section class="footer">
+    <div class="fbox">
+        <p style="text-align: center;"> &copy; 2018 <b> Verdana Resort</b>. All rights reserved. <br>Pokhara,Nepal<br>
+          Email us at: 
+          <a href="mailto:info@verdanaresort.com" style="color: #12690a; text-decoration: none;"><b>info@verdanaresort.com</b></a>
+         <br> Follow us on our socials:<br>
+        <a href="#" ><img src="imagees/f.jpg" width="200px"></a>
+      
+     </p>
+      </div>
+  </section>
+
+  <!-- JavaScript Validation -->
+  <script>
+    const form = document.getElementById('contactForm');
+    const nameEl = document.getElementById('name');
+    const emailEl = document.getElementById('email');
+    const messageEl = document.getElementById('message');
+
+    const nameError = document.getElementById('nameError');
+    const emailError = document.getElementById('emailError');
+    const messageError = document.getElementById('messageError');
+
+    form.addEventListener('submit', function(e) {
+      let valid = true;
+
+      nameError.textContent = '';
+      emailError.textContent = '';
+      messageError.textContent = '';
+
+      if (nameEl.value.trim() === '') {
+        nameError.textContent = 'Please enter your name.';
+        valid = false;
+      }
+
+      const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+      if (emailEl.value.trim() === '') {
+        emailError.textContent = 'Please enter your email.';
+        valid = false;
+      } else if (!emailPattern.test(emailEl.value.trim())) {
+        emailError.textContent = 'Please enter a valid email address.';
+        valid = false;
+      }
+
+      if (messageEl.value.trim() === '') {
+        messageError.textContent = 'Please enter your message.';
+        valid = false;
+      }
+
+      if (!valid) {
+        e.preventDefault();
+      } else {
+        alert('Message sent successfully!');
+        form.reset();
+      }
+    });
+  </script>
+
+</body>
+</html>
