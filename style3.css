@@ -1,0 +1,86 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    height: 100%;
+    background-color: #79a874;
+    max-width: 1320px; 
+}
+
+
+
+/* Header Section */
+#header {
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff; /* Dark background for contrast */
+    padding: 15px 30px;
+    height: 80px;
+    width: 1380px;
+}
+
+/* Logo */
+.logo {
+    width: 100px;
+    height: 80px;
+    margin: 0px;
+}
+
+/* Navbar Styling */
+nav {
+    
+    display: flex;
+    gap: 55px;
+}
+
+/* Navbar Links */
+nav a {
+    color: #12690a;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 8px 12px;
+}
+
+/* Navbar Link Hover */
+nav a:hover {
+    background-color:#12690a;
+    color:  aliceblue;
+    border-radius: 6px;
+}.gallery-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 15px;
+  width: fit-content;
+  margin: 0 auto;
+  padding: 100px;
+}
+
+.gallery-container img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  border-radius: 8px;
+}
+
+.gallery-container img:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  transform: scale(1.03);
+}
+
+  
+.footer{
+    background-color: #ffffff;
+    color: #12690a;
+    width: 1380px;
+    
+  }
+  .footer p{
+    padding-top:30px;
+  }
